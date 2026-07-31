@@ -2,3 +2,8 @@
 .vercel
 work/
 .env*
+node_modules/
+.svelte-kit/
+.output/
+build/
+.vite/

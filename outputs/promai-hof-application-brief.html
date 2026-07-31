@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Organized briefing for Max's IPN ProMAI application, with Hof University as the preferred destination.">
+  <title>ProMAI 2027 | Hof Application Brief</title>
+  <style>
+    :root {
+      --ink: #17212b;
+      --muted: #5f6d78;
+      --paper: #ffffff;
+      --canvas: #f4f6f8;
+      --line: #d9e0e6;
+      --blue: #075a8c;
+      --blue-soft: #e6f3fa;
+      --green: #206a4b;
+      --green-soft: #e7f5ed;
+      --amber: #875b00;
+      --amber-soft: #fff3d7;
+      --red: #a33b36;
+      --red-soft: #fbedeb;
+      --shadow: 0 18px 55px rgb(23 33 43 / 8%);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--canvas);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.62;
+    }
+    a { color: var(--blue); text-underline-offset: 0.18em; }
+    a:hover { color: #003f68; }
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 32px auto 48px;
+      overflow: hidden;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+    .hero {
+      padding: clamp(32px, 6vw, 68px);
+      color: white;
+      background: linear-gradient(135deg, #06344f, #0871a4 58%, #2893a1);
+    }
+    .eyebrow {
+      margin: 0 0 12px;
+      color: #c6f1f4;
+      font-size: 0.78rem;
+      font-weight: 750;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 { line-height: 1.18; }
+    h1 {
+      max-width: 850px;
+      margin: 0;
+      font-size: clamp(2.05rem, 6vw, 4rem);
+      letter-spacing: -0.045em;
+    }
+    .lede {
+      max-width: 790px;
+      margin: 20px 0 0;
+      color: #e5f6fb;
+      font-size: clamp(1rem, 2vw, 1.18rem);
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 22px;
+      margin: 30px 0 0;
+      color: #ccedf5;
+      font-size: 0.9rem;
+    }
+    .main { padding: clamp(26px, 5vw, 58px); }
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 0 0 38px;
+    }
+    .stat {
+      min-height: 128px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fbfcfd;
+    }
+    .stat strong { display: block; color: var(--blue); font-size: 1.8rem; line-height: 1.1; }
+    .stat span { display: block; margin-top: 9px; color: var(--muted); font-size: 0.92rem; }
+    .notice {
+      position: relative;
+      margin: 24px 0;
+      padding: 18px 20px 18px 22px;
+      border: 1px solid;
+      border-radius: 10px;
+    }
+    .notice::before { content: ""; position: absolute; top: 14px; bottom: 14px; left: 0; width: 4px; border-radius: 4px; }
+    .notice p:last-child { margin-bottom: 0; }
+    .notice h3 { margin: 0 0 7px; font-size: 1rem; }
+    .notice.info { border-color: #b6ddec; background: var(--blue-soft); }
+    .notice.info::before { background: var(--blue); }
+    .notice.good { border-color: #b9dec9; background: var(--green-soft); }
+    .notice.good::before { background: var(--green); }
+    .notice.warn { border-color: #f0d496; background: var(--amber-soft); }
+    .notice.warn::before { background: var(--amber); }
+    .notice.alert { border-color: #edc1bd; background: var(--red-soft); }
+    .notice.alert::before { background: var(--red); }
+    nav {
+      margin: 30px 0 44px;
+      padding: 22px 24px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fbfcfd;
+    }
+    nav h2 { margin: 0 0 12px; font-size: 1rem; }
+    nav ol { columns: 2; gap: 32px; margin: 0; padding-left: 22px; }
+    nav li { margin: 5px 0; break-inside: avoid; }
+    section { scroll-margin-top: 22px; }
+    section + section { margin-top: 54px; }
+    h2 { margin: 0 0 16px; font-size: clamp(1.45rem, 3vw, 2rem); letter-spacing: -0.025em; }
+    h2 .es { color: var(--muted); font-size: 0.72em; font-weight: 550; }
+    h3 { margin: 28px 0 10px; font-size: 1.12rem; }
+    p { margin: 0 0 14px; }
+    ul, ol { margin: 10px 0 18px; padding-left: 24px; }
+    li + li { margin-top: 6px; }
+    .tag {
+      display: inline-block;
+      margin-left: 7px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: var(--amber-soft);
+      color: #704a00;
+      font-size: 0.7rem;
+      font-weight: 750;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      vertical-align: middle;
+    }
+    .tag.confirmed { background: var(--green-soft); color: #17613e; }
+    .tag.assessment { background: #efe8ff; color: #624197; }
+    .table-wrap { overflow-x: auto; margin: 18px 0 24px; }
+    table { width: 100%; min-width: 630px; border-collapse: collapse; font-size: 0.93rem; }
+    caption { padding: 0 0 10px; color: var(--muted); text-align: left; font-size: 0.86rem; }
+    th, td { padding: 12px 13px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: #183447; background: #eaf2f6; font-size: 0.83rem; letter-spacing: 0.025em; text-transform: uppercase; }
+    tr:nth-child(even) td { background: #fcfdfe; }
+    .status { font-weight: 700; white-space: nowrap; }
+    .status.high { color: var(--green); }
+    .status.medium { color: var(--amber); }
+    .status.verify { color: var(--red); }
+    .key-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 30px; margin: 20px 0; }
+    .key-list div { padding: 0 0 12px; border-bottom: 1px solid var(--line); }
+    .key-list dt { color: var(--muted); font-size: 0.8rem; font-weight: 720; letter-spacing: 0.06em; text-transform: uppercase; }
+    .key-list dd { margin: 4px 0 0; font-weight: 650; }
+    .checklist { list-style: none; padding-left: 0; counter-reset: actions; }
+    .checklist li { position: relative; min-height: 43px; padding: 8px 0 8px 52px; counter-increment: actions; }
+    .checklist li::before {
+      content: counter(actions);
+      position: absolute;
+      top: 4px;
+      left: 0;
+      display: grid;
+      width: 32px;
+      height: 32px;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      background: var(--blue);
+      font-weight: 750;
+    }
+    .source-list li { margin: 10px 0; }
+    .small { color: var(--muted); font-size: 0.88rem; }
+    footer { padding: 25px clamp(26px, 5vw, 58px); border-top: 1px solid var(--line); color: var(--muted); background: #fbfcfd; font-size: 0.86rem; }
+    @media (max-width: 720px) {
+      .page { width: 100%; margin: 0; border: 0; border-radius: 0; }
+      .quick-grid, .key-list { grid-template-columns: 1fr; }
+      nav ol { columns: 1; }
+      .hero { padding: 36px 24px; }
+      .main { padding: 32px 22px 46px; }
+    }
+    @media print {
+      body { background: white; font-size: 10.5pt; }
+      .page { width: 100%; margin: 0; border: 0; border-radius: 0; box-shadow: none; }
+      .hero { padding: 25px 36px; background: #0b597d !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .main { padding: 28px 36px; }
+      section + section { margin-top: 34px; }
+      nav, .notice, .stat, th, tr:nth-child(even) td { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <header class="hero">
+      <p class="eyebrow">IPN International Mobility · January–July 2027</p>
+      <h1>ProMAI Application Brief<br><span lang="es">Plan de movilidad: Hof como primera opción</span></h1>
+      <p class="lede">A structured working record for Max’s application: eligibility, language evidence, proposed destinations, academic profile, preliminary course compatibility, and English-level assessment.</p>
+      <div class="meta">
+        <span>Prepared: 30 July 2026</span>
+        <span>Preferred destination: Hof University of Applied Sciences</span>
+        <span>Working status: pending official confirmation</span>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="quick-grid" aria-label="Application snapshot">
+        <div class="stat"><strong>8.49</strong><span>Current overall average (<span lang="es">promedio global</span>)</span></div>
+        <div class="stat"><strong>70.44%</strong><span>Completed programme credits (<span lang="es">créditos cubiertos</span>)</span></div>
+        <div class="stat"><strong>Hof #1</strong><span>Preferred first-choice destination in Germany</span></div>
+      </div>
+
+      <aside class="notice alert" aria-label="Important verification notice">
+        <h3>Important: this is an organized working brief, not an official determination</h3>
+        <p>This document records the conclusions and recommendations from the referenced conversation. Requirements, deadlines, course availability, equivalencies, and accepted certificates must be confirmed in writing with UPIICSA/IPN and Hof before relying on them.</p>
+      </aside>
+
+      <nav aria-label="Table of contents">
+        <h2>Contents / <span lang="es">Índice</span></h2>
+        <ol>
+          <li><a href="#summary">Current conclusion</a></li>
+          <li><a href="#eligibility">Eligibility and selection</a></li>
+          <li><a href="#language">Language requirement</a></li>
+          <li><a href="#profile">Academic profile</a></li>
+          <li><a href="#choices">Destination choices</a></li>
+          <li><a href="#equivalencies">Hof course equivalencies</a></li>
+          <li><a href="#english">English-level assessment</a></li>
+          <li><a href="#actions">Priority actions</a></li>
+          <li><a href="#sources">Source documents</a></li>
+        </ol>
+      </nav>
+
+      <section id="summary">
+        <h2>1. Current conclusion <span class="es" lang="es">/ Conclusión actual</span></h2>
+        <p>Hof University of Applied Sciences appears to be a realistic and well-aligned first choice for an Informatics Engineering student. The main immediate issue is not learning German from zero; it is documenting the language level that the destination and IPN will accept, and preparing a complete nomination file on the applicable internal timeline.</p>
+        <aside class="notice good">
+          <h3>Best current route</h3>
+          <p>Apply to Hof for English-taught coursework and support the application with an accepted English B2 certificate. The conversation’s reading of the Hof entry was that German A2 would not be required for this English-only route.</p>
+        </aside>
+        <aside class="notice warn">
+          <h3>Do not treat the A2 issue as resolved until it is confirmed</h3>
+          <p>The initial information received mentioned an A2 German certificate in the first week of August. The later interpretation of the ProMAI annex indicated an English B2 route for Hof. Both the applicable certificate and the real deadline require written confirmation from the mobility coordinator.</p>
+        </aside>
+      </section>
+
+      <section id="eligibility">
+        <h2>2. Eligibility and selection <span class="es" lang="es">/ Elegibilidad y selección</span></h2>
+        <h3>General ProMAI conditions cited in the conversation</h3>
+        <div class="table-wrap">
+          <table>
+            <caption>Working checklist based on the referenced ProMAI discussion; confirm against the 2026 call and UPIICSA’s process.</caption>
+            <thead><tr><th>Condition</th><th>Max’s current position</th><th>Working status</th></tr></thead>
+            <tbody>
+              <tr><td>Regular, in-person undergraduate student</td><td>Reported as a regular student.</td><td class="status high">Appears met</td></tr>
+              <tr><td>Minimum overall average for Engineering: 8.0</td><td>8.49 current average.</td><td class="status high">Appears met</td></tr>
+              <tr><td>Completed credits between 50% and 80%</td><td>70.44% completed.</td><td class="status high">Appears met</td></tr>
+              <tr><td>All enrolled subjects passed / no unresolved academic issue</td><td>Reported as regular; exact record should be verified by <span lang="es">Gestión Escolar</span>.</td><td class="status medium">Verify</td></tr>
+              <tr><td>No previous ProMAI, ProMAN, or PILA participation</td><td>Not documented in this brief.</td><td class="status verify">Verify</td></tr>
+              <tr><td>Maintain eligibility until mobility</td><td>Must remain in good academic standing through the process.</td><td class="status medium">Ongoing</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>How selection was described</h3>
+        <ol>
+          <li>Overall academic average.</li>
+          <li>Level of certified language proficiency.</li>
+          <li>Number of certified languages.</li>
+          <li>Credit percentage closest to the 80% upper limit.</li>
+        </ol>
+        <aside class="notice info">
+          <h3>Credit percentage: favorable, not a disadvantage</h3>
+          <p>At 70.44%, Max is within the stated eligibility range and closer to 80% than many applicants. The risk is only if the official calculation exceeds 80% at the relevant review point; this needs confirmation from the Academic Unit.</p>
+        </aside>
+      </section>
+
+      <section id="language">
+        <h2>3. Language requirement <span class="es" lang="es">/ Requisito de idioma</span></h2>
+        <h3>Working interpretation for Hof</h3>
+        <p>The conversation interpreted Hof’s ProMAI listing as requiring at least B2 in <strong>English or German</strong>, with programmes offered in both languages. For a plan consisting exclusively of English-taught courses, the practical recommendation was to use an accepted B2 English certificate rather than seek an urgent German A2 certificate.</p>
+
+        <div class="table-wrap">
+          <table>
+            <caption>Certificates and scores mentioned for the English-taught Hof route.</caption>
+            <thead><tr><th>Certificate</th><th>Threshold mentioned</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td>TOEFL ITP</td><td>543</td><td>Confirm current acceptance and test availability.</td></tr>
+              <tr><td>TOEFL iBT</td><td>72–94</td><td>Confirm the score range and deadline for results.</td></tr>
+              <tr><td>IELTS</td><td>5.5–6.0</td><td>Confirm the exact accepted version and results timeline.</td></tr>
+              <tr><td>Cambridge FCE</td><td>B2</td><td>Confirm whether an existing valid result is acceptable.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <aside class="notice warn">
+          <h3>Certificate scope needs written confirmation</h3>
+          <p>The general call was described as accepting a wider range of English proofs, but the conversation cautioned that Hof’s own entry may list only the certificates above. Do not assume a CENLEX certificate alone is sufficient for Hof unless the coordinator confirms it in writing.</p>
+        </aside>
+
+        <h3>Timeline cited in the conversation <span class="tag">confirm dates</span></h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Stage</th><th>Dates stated in the conversation</th><th>What to verify</th></tr></thead>
+            <tbody>
+              <tr><td>Online registration</td><td>17 July–21 August 2026</td><td>Whether the form is open and the exact submission method.</td></tr>
+              <tr><td>Complete file delivered to Academic Unit</td><td>10–28 August 2026</td><td>UPIICSA’s internal deadline, which may be earlier.</td></tr>
+              <tr><td>Academic Unit nominates to DRI</td><td>10 August–3 September 2026</td><td>Which documents Max must deliver before the UA review.</td></tr>
+              <tr><td>Results</td><td>17 September 2026</td><td>Official publication date and any later host-university application.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="profile">
+        <h2>4. Academic profile <span class="es" lang="es">/ Perfil académico</span></h2>
+        <dl class="key-list">
+          <div><dt>Programme</dt><dd>Informatics Engineering, UPIICSA–IPN</dd></div>
+          <div><dt>Academic status</dt><dd>Regular student (reported)</dd></div>
+          <div><dt>Overall average</dt><dd>8.49</dd></div>
+          <div><dt>Completed credits</dt><dd>70.44%</dd></div>
+          <div><dt>Completed subjects</dt><dd>45, as calculated in the conversation</dd></div>
+          <div><dt>Current registered load</dt><dd>One subject (reported)</dd></div>
+        </dl>
+        <p>The discussion calculated that a grade of 10 in one additional subject would change the simple average from 382 ÷ 45 = 8.4889 to 392 ÷ 46 = <strong>8.5217</strong> (likely displayed as 8.52). This is a modest positive change, but it will matter only if the grade appears on the official record before the application file is assessed.</p>
+        <aside class="notice info">
+          <h3>Strategic priority</h3>
+          <p>A higher average helps, but obtaining an accepted language certificate and a complete, internally approved file are likely more urgent controllable factors for this application cycle.</p>
+        </aside>
+      </section>
+
+      <section id="choices">
+        <h2>5. Proposed destinations <span class="es" lang="es">/ Opciones de destino</span></h2>
+        <p>The following combination balances Max’s genuine goal of Germany with a strong Spanish alternative. Final selections should depend on language evidence, course compatibility, and places available in the official annex.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Priority</th><th>University</th><th>Country</th><th>Why it fits</th><th>Important caveat</th></tr></thead>
+            <tbody>
+              <tr><td><strong>1</strong></td><td>Hof University of Applied Sciences</td><td>Germany</td><td>Direct fit for Informatics/Engineering; English-taught options; reported allocation of 8 places.</td><td>Confirm English certificate, current course catalogue, and revalidation.</td></tr>
+              <tr><td><strong>2</strong></td><td>Hamm-Lippstadt University of Applied Sciences</td><td>Germany</td><td>Suggested as a practical second German option for Engineering/Technology and English-taught study.</td><td>Reportedly only 2 places; subject fit and accepted certificate need checking.</td></tr>
+              <tr><td><strong>3</strong></td><td>Universidad Politécnica de Madrid</td><td>Spain</td><td>Strong technical profile, broad Engineering compatibility, and reported allocation of 20 places.</td><td>Confirm that the current annex lists Informatics-compatible courses and accepted language proof.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Alternative: University of Stuttgart</h3>
+        <p>Stuttgart remains an attractive, more ambitious second German choice. The conversation flagged it as higher risk because it was reported to have one place, limited English-taught undergraduate coursework, and a mandatory intensive German course. Choose it if personal preference and prestige outweigh the additional uncertainty.</p>
+      </section>
+
+      <section id="equivalencies">
+        <h2>6. Preliminary Hof course equivalencies <span class="es" lang="es">/ Posibles equivalencias</span></h2>
+        <p>These are <strong>academic hypotheses</strong>, not approved equivalencies. They were matched against a Hof English-course catalogue cited as a May 2026 edition. For mobility in the March–July 2027 summer semester, both Hof’s 2027 offer and the UPIICSA equivalency decision may differ.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Pending UPIICSA subject</th><th>Possible Hof module</th><th>ECTS mentioned</th><th>Preliminary fit</th><th>What must be checked</th></tr></thead>
+            <tbody>
+              <tr><td>Computación en la nube</td><td>Cloud Computing</td><td>5</td><td class="status high">Very strong</td><td>2027 availability; syllabus, workload, Linux and networking prerequisites.</td></tr>
+              <tr><td>Seguridad en redes</td><td>CCNA Network Security or CCNA Cybersecurity Operations</td><td>5</td><td class="status high">Strong</td><td>Whether prior UPIICSA networking/security courses satisfy the CCNA sequence.</td></tr>
+              <tr><td>Fundamentos de analítica de datos</td><td>Process Mining</td><td>5</td><td class="status medium">Medium–strong</td><td>Depth of analytics, programming, data methods, and learning outcomes.</td></tr>
+              <tr><td>Gestión de proyectos</td><td>Project Management</td><td>3</td><td class="status medium">Content strong</td><td>Potential workload/credit shortfall; whether another course must be combined.</td></tr>
+              <tr><td>Habilidades directivas</td><td>International Negotiating Skills or Human Resources Development</td><td>5</td><td class="status medium">Medium–strong</td><td>Leadership, communication, negotiation, and decision-making outcomes.</td></tr>
+              <tr><td>Informática empresarial</td><td>Process Management</td><td>5</td><td class="status medium">Medium</td><td>Alignment with enterprise systems, organizational processes, and IT use.</td></tr>
+              <tr><td>Administración de tecnologías</td><td>Process Management or Interdisciplinary Practical Course</td><td>5</td><td class="status medium">Possible</td><td>Detailed content and assessment method.</td></tr>
+              <tr><td>Ingeniería del conocimiento</td><td>Domain Specific Languages</td><td>Not recorded</td><td class="status medium">Possible</td><td>Strong syllabus comparison needed before proposing it.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Provisional semester package</h3>
+        <div class="table-wrap">
+          <table>
+            <caption>Illustrative package only; target workload cited as around 30 ECTS, without exceeding 30–35 ECTS.</caption>
+            <thead><tr><th>Hof module</th><th>ECTS</th><th>Potential UPIICSA correspondence</th></tr></thead>
+            <tbody>
+              <tr><td>Cloud Computing</td><td>5</td><td>Computación en la nube</td></tr>
+              <tr><td>CCNA Network Security</td><td>5</td><td>Seguridad en redes</td></tr>
+              <tr><td>Process Mining</td><td>5</td><td>Fundamentos de analítica de datos</td></tr>
+              <tr><td>International Negotiating Skills</td><td>5</td><td>Habilidades directivas</td></tr>
+              <tr><td>Process Management</td><td>5</td><td>Informática empresarial</td></tr>
+              <tr><td>Project Management</td><td>3</td><td>Gestión de proyectos</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>28</strong></td><td>Six potential subjects</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <aside class="notice warn">
+          <h3>Modules to avoid assuming are available</h3>
+          <p>Internet of Things, Applied Cloud Computing, Information System Security, Data Engineering and Analysis, Industry 4.0 and Data Management, and Data Science and AI Fundamentals were described as Master-level in the cited catalogue. Do not include them in the undergraduate plan unless Hof expressly permits it.</p>
+        </aside>
+        <aside class="notice info">
+          <h3>Safer academic approach</h3>
+          <p>Keep <em>Proyecto de titulación</em> out of the primary equivalency plan unless UPIICSA specifically approves an external project arrangement. The next document to collect is the official syllabus (<span lang="es">programa sintético</span>) for each proposed UPIICSA subject.</p>
+        </aside>
+      </section>
+
+      <section id="english">
+        <h2>7. English-level assessment <span class="es" lang="es">/ Evaluación de inglés</span></h2>
+        <p>This is an informal assessment drawn only from Max’s written English in conversations. It is useful for planning but cannot replace an official language test.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Skill</th><th>Working estimate</th><th>Basis observed in conversation</th></tr></thead>
+            <tbody>
+              <tr><td>Reading and comprehension</td><td class="status high">B2+ / C1</td><td>Follows detailed technical, administrative, and nuanced explanations in English.</td></tr>
+              <tr><td>Technical vocabulary</td><td class="status high">C1</td><td>Comfortably discusses software, requirements, architecture, compatibility, and validation.</td></tr>
+              <tr><td>General written interaction</td><td class="status high">B2+</td><td>Expresses complex needs, emotions, constraints, and follow-up questions clearly.</td></tr>
+              <tr><td>Grammar accuracy</td><td class="status medium">B2</td><td>Meaning is clear; naturalness occasionally slips in prepositions, collocations, or sentence construction.</td></tr>
+              <tr><td>Overall functional level</td><td class="status high">Strong B2</td><td>Likely sufficient for English-taught study, subject to formal certification.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Examples of recurring polish points: <em>“by any chance”</em> rather than <em>“by any chances”</em>; <em>“look into Hof’s course offerings”</em> rather than <em>“investigate against Hof’s education”</em>; and <em>“improve my chances”</em> rather than <em>“improve my changes.”</em></p>
+        <aside class="notice good">
+          <h3>Practical interpretation</h3>
+          <p>Max appears capable of studying in English. The remaining challenge is exam-specific: listening conditions, timing, speaking format, and standardized-writing technique may affect a TOEFL, IELTS, or Cambridge score even when everyday academic English is already strong.</p>
+        </aside>
+      </section>
+
+      <section id="actions">
+        <h2>8. Priority actions <span class="es" lang="es">/ Próximos pasos</span></h2>
+        <ol class="checklist">
+          <li><strong>Confirm Hof’s language route in writing.</strong> Ask whether English-only coursework means German A2 is unnecessary, exactly which B2 certificates are accepted, and whether the scores listed above are still current.</li>
+          <li><strong>Confirm the internal UPIICSA deadline.</strong> Ask whether the “first week of August” is a local review date and what proof is required by then.</li>
+          <li><strong>Choose the destination order.</strong> Working recommendation: Hof #1, Hamm-Lippstadt #2, Universidad Politécnica de Madrid #3; decide whether Stuttgart should replace Hamm-Lippstadt.</li>
+          <li><strong>Select the certificate route immediately.</strong> Compare test availability, result dates, cost, and the university’s written confirmation before registering.</li>
+          <li><strong>Prepare the initial application record.</strong> Complete the DRI02_S form, retain a completion screenshot, and coordinate the nomination letter, enrolment certificate, and <span lang="es">boleta global</span> with the Academic Unit.</li>
+          <li><strong>Request preliminary compatibility review.</strong> Provide the six proposed Hof/UPIICSA pairs and ask which syllabi, workload evidence, or forms are needed.</li>
+          <li><strong>Collect official syllabi.</strong> Obtain current <span lang="es">programas sintéticos</span> for the UPIICSA courses and, when released, Hof’s Summer Semester 2027 module descriptions.</li>
+          <li><strong>Keep a written record.</strong> Save emails confirming certificates, deadlines, course level, prerequisites, and equivalency decisions.</li>
+        </ol>
+
+        <aside class="notice info">
+          <h3>Questions ready to send to the mobility coordinator</h3>
+          <ul>
+            <li>For Hof and English-taught subjects, is an A2 German certificate unnecessary if I submit an accepted B2 English certificate?</li>
+            <li>Which English certificates and minimum scores will you accept for the 2027 Hof nomination?</li>
+            <li>Is the first week of August an internal UPIICSA deadline? What exact documents must I submit then?</li>
+            <li>Can you review the proposed course correspondences before the final Hof 2027 catalogue is published?</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section id="sources">
+        <h2>9. Source documents <span class="es" lang="es">/ Documentos fuente</span></h2>
+        <p>The following documents were supplied in the original conversation. Review the latest official version before submitting any application.</p>
+        <ul class="source-list">
+          <li><a href="https://www.ipn.mx/assets/files/dri/docs/Convocatoria/2026/convocatoria-promai-ene-jul-2027f.pdf">IPN ProMAI call, January–July 2027</a></li>
+          <li><a href="https://www.ipn.mx/assets/files/dri/docs/Formatos/2026/PROMAI-26/JULIO/anexo-int1.pdf">Anexo INT 1 — participating institutions and requirements</a></li>
+          <li><a href="https://www.ipn.mx/assets/files/dri/docs/Formatos/2026/PROMAI-26/JULIO/anexo-int3.pdf">Anexo INT 3 — calendar and related information</a></li>
+          <li><a href="https://www.upiicsa.ipn.mx/assets/files/ofertaEducativa/mapa-curricular/superior/escolarizado/mapa-curricular-upiicsa-ing-inf.pdf">UPIICSA Informatics Engineering curricular map</a></li>
+        </ul>
+        <p class="small">The referenced conversation also cited a Hof English-course catalogue described as a May 2026 edition, but did not preserve the direct catalogue link. Add the official Summer Semester 2027 catalogue and module handbooks to the file once Hof publishes them.</p>
+      </section>
+    </main>
+    <footer>
+      Prepared from the referenced conversation for personal planning. It deliberately distinguishes reported conclusions from matters requiring institutional confirmation.
+    </footer>
+  </article>
+</body>
+</html>

@@ -6,4 +6,5 @@ node_modules/
 .svelte-kit/
 .output/
 build/
+dist/
 .vite/

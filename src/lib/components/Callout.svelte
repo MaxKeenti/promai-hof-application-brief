@@ -10,44 +10,28 @@
 		title: string;
 		children: import('svelte').Snippet;
 	} = $props();
+
+	const marks: Record<NoticeTone, string> = { info: 'i', good: '✓', warn: '!', alert: '!' };
 </script>
 
 <aside class:info={tone === 'info'} class:good={tone === 'good'} class:warn={tone === 'warn'} class:alert={tone === 'alert'}>
-	<h3>{title}</h3>
-	{@render children()}
+	<span class="mark" aria-hidden="true">{marks[tone]}</span>
+	<div class="content"><h3>{title}</h3>{@render children()}</div>
 </aside>
 
 <style>
-	aside {
-		position: relative;
-		margin: 24px 0;
-		padding: 18px 20px 18px 22px;
-		border: 1px solid;
-		border-radius: 10px;
-	}
-
-	aside::before {
-		position: absolute;
-		top: 14px;
-		bottom: 14px;
-		left: 0;
-		width: 4px;
-		border-radius: 4px;
-		content: '';
-	}
-
-	h3 {
-		margin: 0 0 7px;
-		font-size: 1rem;
-	}
-
-	:global(p:last-child) { margin-bottom: 0; }
-	.info { border-color: #b6ddec; background: var(--blue-soft); }
-	.info::before { background: var(--blue); }
-	.good { border-color: #b9dec9; background: var(--green-soft); }
-	.good::before { background: var(--green); }
-	.warn { border-color: #f0d496; background: var(--amber-soft); }
-	.warn::before { background: var(--amber); }
-	.alert { border-color: #edc1bd; background: var(--red-soft); }
-	.alert::before { background: var(--red); }
+	aside { display: flex; gap: 12px; margin: 24px 0; padding: 17px 18px; border: 1px solid; border-radius: 14px; }
+	.mark { display: grid; flex: 0 0 auto; width: 23px; height: 23px; place-items: center; border-radius: 50%; font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 500; line-height: 1; }
+	.content { min-width: 0; }
+	h3 { margin: 1px 0 5px; font-size: 0.94rem; font-weight: 700; line-height: 1.4; }
+	:global(p:last-child), :global(ul:last-child) { margin-bottom: 0; }
+	:global(ul) { padding-left: 19px; }
+	.info { border-color: #c8e4ef; background: var(--blue-soft); }
+	.info .mark { color: var(--blue); background: #d4edf6; }
+	.good { border-color: #c9e8d6; background: var(--green-soft); }
+	.good .mark { color: var(--green); background: #d6f0df; }
+	.warn { border-color: #efdbac; background: var(--amber-soft); }
+	.warn .mark { color: var(--amber); background: #ffebbc; }
+	.alert { border-color: #f2cdc9; background: var(--red-soft); }
+	.alert .mark { color: var(--red); background: #ffe0dc; }
 </style>

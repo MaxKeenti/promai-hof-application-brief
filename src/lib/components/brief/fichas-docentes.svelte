@@ -14,7 +14,7 @@
 	id="guias"
 	index="03 — Guías docentes"
 	title="Contenido de cada asignatura"
-	lead="La guía docente completa de las once asignaturas, transcrita de las fichas oficiales de la UPV/EHU para el curso 2026/27: carga horaria, competencias, temario, metodología, evaluación y bibliografía. No hace falta salir del documento."
+	lead="La guía docente completa de las once asignaturas, transcrita de las fichas oficiales de la UPV/EHU del curso académico 2026/27: carga horaria, competencias, temario, metodología, evaluación y bibliografía. No hace falta salir del documento."
 >
 	<div class="mb-4 flex items-center justify-between gap-4">
 		<p class="text-xs text-muted-foreground">

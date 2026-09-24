@@ -26,6 +26,8 @@ export type MateriaEhu = {
 };
 
 const ESCUELA = 'Escuela de Ingeniería de Bilbao';
+// La hoja de cálculo decía «Español»; la ficha oficial de la EHU lo etiqueta
+// «Castellano», que es el término que usa la solicitud.
 const CAMPUS = 'Bizkaia';
 
 /** Asignaturas de UPIICSA disponibles en 7.º y 8.º semestre. */
@@ -83,7 +85,7 @@ export const materiasPropuestas: MateriaEhu[] = [
 		centro: ESCUELA,
 		campus: CAMPUS,
 		ects: 6,
-		idioma: 'Español',
+		idioma: 'Castellano',
 		equivaleA: 'Gestión de Proyectos',
 		link: ehuLink(INFORMATICA_GESTION, 3, '27684')
 	},
@@ -93,7 +95,7 @@ export const materiasPropuestas: MateriaEhu[] = [
 		centro: ESCUELA,
 		campus: CAMPUS,
 		ects: 6,
-		idioma: 'Español',
+		idioma: 'Castellano',
 		equivaleA: 'Calidad y Normalización de Software',
 		link: ehuLink(INFORMATICA_GESTION, 3, '27705')
 	},
@@ -103,7 +105,7 @@ export const materiasPropuestas: MateriaEhu[] = [
 		centro: ESCUELA,
 		campus: CAMPUS,
 		ects: 6,
-		idioma: 'Español',
+		idioma: 'Castellano',
 		equivaleA: 'Fundamentos de Analítica de Datos',
 		link: ehuLink(INFORMATICA_GESTION, 3, '27704')
 	},
@@ -113,7 +115,7 @@ export const materiasPropuestas: MateriaEhu[] = [
 		centro: ESCUELA,
 		campus: CAMPUS,
 		ects: 6,
-		idioma: 'Español',
+		idioma: 'Castellano',
 		equivaleA: 'Redes y Modelos de Simulación',
 		link: ehuLink(INFORMATICA_GESTION, 2, '26023')
 	},
@@ -123,7 +125,7 @@ export const materiasPropuestas: MateriaEhu[] = [
 		centro: ESCUELA,
 		campus: CAMPUS,
 		ects: 6,
-		idioma: 'Español',
+		idioma: 'Castellano',
 		equivaleA: 'Seguridad en Redes',
 		link: ehuLink(TELECOMUNICACION, 3, '28627')
 	}
@@ -137,7 +139,7 @@ export const materiasAlternativas: MateriaEhu[] = [
 		centro: ESCUELA,
 		campus: CAMPUS,
 		ects: 6,
-		idioma: 'Español',
+		idioma: 'Castellano',
 		equivaleA: 'Administración de Tecnologías',
 		link: ehuLink(ORGANIZACION_INDUSTRIAL, 4, '27409')
 	},
@@ -147,7 +149,7 @@ export const materiasAlternativas: MateriaEhu[] = [
 		centro: ESCUELA,
 		campus: CAMPUS,
 		ects: 6,
-		idioma: 'Español',
+		idioma: 'Castellano',
 		equivaleA: 'Administración Estratégica',
 		link: ehuLink(ORGANIZACION_INDUSTRIAL, 4, '27406')
 	},
@@ -157,7 +159,7 @@ export const materiasAlternativas: MateriaEhu[] = [
 		centro: ESCUELA,
 		campus: CAMPUS,
 		ects: 6,
-		idioma: 'Español',
+		idioma: 'Castellano',
 		equivaleA: 'Habilidades Directivas',
 		link: ehuLink(ORGANIZACION_INDUSTRIAL, 3, '27401')
 	},
@@ -167,7 +169,7 @@ export const materiasAlternativas: MateriaEhu[] = [
 		centro: ESCUELA,
 		campus: CAMPUS,
 		ects: 6,
-		idioma: 'Español',
+		idioma: 'Castellano',
 		equivaleA: 'Computación en la Nube',
 		link: ehuLink(INFORMATICA_GESTION, 3, '27702')
 	},
@@ -177,7 +179,7 @@ export const materiasAlternativas: MateriaEhu[] = [
 		centro: ESCUELA,
 		campus: CAMPUS,
 		ects: 6,
-		idioma: 'Español',
+		idioma: 'Castellano',
 		equivaleA: 'Redes y Modelos de Simulación',
 		link: ehuLink(INFORMATICA_GESTION, 4, '27691')
 	},
@@ -187,7 +189,7 @@ export const materiasAlternativas: MateriaEhu[] = [
 		centro: ESCUELA,
 		campus: CAMPUS,
 		ects: 6,
-		idioma: 'Español',
+		idioma: 'Castellano',
 		equivaleA: 'Redes y Modelos de Simulación',
 		link: ehuLink(ORGANIZACION_INDUSTRIAL, 3, '27402')
 	}

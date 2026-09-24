@@ -6,11 +6,15 @@
 	import { Badge } from '$lib/components/ui/badge/index.js';
 	import type { MateriaEhu } from '$lib/data/materias.js';
 	import { guiasDocentes } from '$lib/data/guias.js';
+	import { validaciones } from '$lib/data/validacion.js';
 	import { fichasAbiertas } from '$lib/state/fichas.svelte.js';
+	import Aviso from './aviso.svelte';
+	import EstadoIcono from './estado-icono.svelte';
 
 	let { materia, alternativa = false }: { materia: MateriaEhu; alternativa?: boolean } = $props();
 
 	const guia = $derived(guiasDocentes[materia.codigo]);
+	const validacion = $derived(validaciones[materia.codigo]);
 	const totalPresencial = $derived(guia.horas.reduce((t, h) => t + Number(h.presencial), 0));
 	const totalNoPresencial = $derived(guia.horas.reduce((t, h) => t + Number(h.noPresencial), 0));
 </script>
@@ -32,9 +36,15 @@
 				{#if alternativa}
 					<Badge variant="outline">Alternativa</Badge>
 				{/if}
+				<EstadoIcono estado={validacion.estado} />
 			</div>
 			<p class="mt-1 text-sm text-muted-foreground">
 				{materia.ects} ECTS · {materia.idioma} · equivale a {materia.equivaleA}
+			</p>
+			<p class="mt-1 text-xs text-muted-foreground">
+				{validacion.nivel} · {validacion.cuatrimestre}{validacion.restriccion
+					? ' · restricción formal de matrícula'
+					: ''}{validacion.horario.length ? ' · aviso de horario' : ''}
 			</p>
 		</div>
 	</summary>
@@ -54,10 +64,64 @@
 				<dd>{guia.curso}.º · curso académico {guia.cursoAcademico}</dd>
 			</div>
 			<div>
+				<dt class="text-xs tracking-wide text-muted-foreground uppercase">Nivel y periodo</dt>
+				<dd>
+					{validacion.nivel} · {validacion.cuatrimestre}
+					<span class="text-muted-foreground">({validacion.semanas})</span>
+				</dd>
+			</div>
+			<div>
+				<dt class="text-xs tracking-wide text-muted-foreground uppercase">Idioma del grupo</dt>
+				<dd>{validacion.idioma}</dd>
+			</div>
+			<div>
 				<dt class="text-xs tracking-wide text-muted-foreground uppercase">Profesorado</dt>
 				<dd>{guia.profesorado.join(' · ')}</dd>
 			</div>
 		</dl>
+
+		{#if validacion.restriccion || validacion.previos || validacion.horario.length || validacion.modalidad}
+			<div class="flex flex-col gap-3">
+				{#if validacion.restriccion}
+					<Aviso titulo="Restricción formal de matrícula">
+						<p>«{validacion.restriccion}»</p>
+						{#if validacion.restriccionNota}
+							<p>{validacion.restriccionNota}</p>
+						{/if}
+					</Aviso>
+				{/if}
+
+				{#if validacion.horario.length}
+					<Aviso titulo="Compatibilidad horaria">
+						{#each validacion.horario as nota, i (i)}
+							<p>{nota}</p>
+						{/each}
+					</Aviso>
+				{/if}
+
+				{#if validacion.modalidad}
+					<Aviso titulo="Modalidad de impartición">
+						<p>{validacion.modalidad}</p>
+					</Aviso>
+				{/if}
+
+				{#if validacion.previos}
+					<div class="border border-border p-3">
+						<p class="text-sm font-medium">Conocimientos previos recomendados</p>
+						<p class="mt-1 text-sm leading-relaxed text-muted-foreground">
+							{validacion.previos.texto}
+						</p>
+						{#if validacion.previos.items}
+							<ul class="mt-2 flex list-disc flex-col gap-1 pl-5 text-sm text-muted-foreground">
+								{#each validacion.previos.items as item, i (i)}
+									<li>{item}</li>
+								{/each}
+							</ul>
+						{/if}
+					</div>
+				{/if}
+			</div>
+		{/if}
 
 		<div>
 			<h4 class="mb-2 font-heading text-sm font-semibold">
@@ -192,7 +256,7 @@
 		{/if}
 
 		<p class="text-xs text-muted-foreground">
-			Transcrito de la ficha oficial de la UPV/EHU ·
+			Transcrito de la ficha oficial de la UPV/EHU del curso académico 2026/27 ·
 			<a
 				class="inline-flex items-center gap-1 text-primary underline-offset-4 hover:underline"
 				href={materia.link}

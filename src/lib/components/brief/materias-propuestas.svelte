@@ -3,6 +3,7 @@
 	import EhuTable from './ehu-table.svelte';
 	import Section from './section.svelte';
 	import Stat from './stat.svelte';
+	import Verificacion from './verificacion.svelte';
 
 	const totalEcts = materiasPropuestas.reduce((total, m) => total + m.ects, 0);
 </script>
@@ -11,7 +12,7 @@
 	id="propuestas"
 	index="02 — UPV/EHU"
 	title="Materias propuestas para el intercambio"
-	lead="Selección de asignaturas de la Universidad del País Vasco, todas en el campus de Bizkaia y en español, con su equivalencia directa en el plan de UPIICSA. Cada fila enlaza a la ficha oficial del curso 2026."
+	lead="Selección de asignaturas de la Universidad del País Vasco, todas en la Escuela de Ingeniería de Bilbao y en castellano, con su equivalencia directa en el plan de UPIICSA. Son asignaturas de Grado del 2.º cuatrimestre, el periodo de intercambio evaluado (primavera 2027) del curso académico 2026/27."
 >
 	<div class="mb-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
 		<Stat
@@ -29,6 +30,10 @@
 	</div>
 
 	<EhuTable materias={materiasPropuestas} />
+
+	<div class="mt-8">
+		<Verificacion />
+	</div>
 
 	<div class="mt-10">
 		<div class="mb-3 flex flex-col gap-1">

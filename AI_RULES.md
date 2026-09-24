@@ -44,7 +44,9 @@ Do not add font weights or subsets without checking the output size.
   here; components stay presentational. `materias.ts` comes from the two
   spreadsheets; `guias.ts` is the literal text of the UPV/EHU guías docentes
   (2026/27). Treat `guias.ts` as a transcription: to update it, re-copy from the
-  official ficha rather than rewriting the university's wording.
+  official ficha rather than rewriting the university's wording. `validacion.ts`
+  holds the application-readiness facts: level, cuatrimestre, language, formal
+  enrolment restrictions, recommended background and timetable conflicts.
 - `src/lib/state/` — the little shared UI state the document needs (which ficha
   is unfolded), as `.svelte.ts` rune classes.
 - `src/lib/components/brief/` — the document's own sections and primitives
@@ -63,6 +65,8 @@ Do not add font weights or subsets without checking the output size.
 - **Colour**: the theme tokens only (`bg-background`, `text-muted-foreground`,
   `border-border`, …). Never hard-code a hex or an oklch value in a component.
   The primary red is an accent for eyebrows, links and badges — not a fill.
+  `--warning` / `--warning-muted` carry every unresolved-verification state; a
+  warning is amber, never red, because nothing in the brief is a rejection.
 - **Layout**: one centred column, `max-w-4xl`. Sections are separated by a top
   border, never by a card. Prose is capped at `max-w-prose`.
 - **Tables** are plain semantic `<table>` inside a bordered, `overflow-x-auto`
@@ -77,6 +81,23 @@ Do not add font weights or subsets without checking the output size.
   rules in `ficha.svelte`). A link into a folded ficha must also unfold it.
 - No interactivity that a reader of a static emailed file cannot use. Anything
   stateful must degrade to readable content.
+
+## Factual discipline
+
+The brief backs an application, so nothing in it may be inferred:
+
+- Every claim in `validacion.ts` must be traceable to the official ficha linked
+  from `materias.ts`. Timetable conflicts are computed from the published
+  Castellano groups, not estimated.
+- A **formal enrolment restriction** (the ficha's own «Restricciones» block) and
+  **recommended prior knowledge** are different things and must stay visibly
+  different. Never write "sin prerrequisitos" — write that no formal restriction
+  appears in the ficha.
+- Never claim exchange credits satisfy the 60-credit rule, and never claim the
+  five primary subjects are timetable-compatible: the published 27705 ↔ 28627
+  Thursday overlap is real and unresolved.
+- Subjects are never swapped, promoted from the alternatives list, or assigned a
+  laboratory group without the user asking. Five primary, six alternatives.
 
 ## Language
 

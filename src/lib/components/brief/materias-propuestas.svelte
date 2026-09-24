@@ -8,6 +8,7 @@
 </script>
 
 <Section
+	id="propuestas"
 	index="02 — UPV/EHU"
 	title="Materias propuestas para el intercambio"
 	lead="Selección de asignaturas de la Universidad del País Vasco, todas en el campus de Bizkaia y en español, con su equivalencia directa en el plan de UPIICSA. Cada fila enlaza a la ficha oficial del curso 2026."

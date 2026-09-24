@@ -1,9 +1,7 @@
 <script lang="ts">
-	/* Every href here is an absolute ehu.eus URL coming from the data module, so
-	   there is no app route for resolve() to take. */
-	/* eslint-disable svelte/no-navigation-without-resolve */
-	import { ExternalLink } from '@lucide/svelte';
+	import { ArrowDown } from '@lucide/svelte';
 	import type { MateriaEhu } from '$lib/data/materias.js';
+	import { fichasAbiertas } from '$lib/state/fichas.svelte.js';
 
 	let { materias }: { materias: MateriaEhu[] } = $props();
 </script>
@@ -16,7 +14,7 @@
 				<th class="px-3 py-2 font-medium">Asignatura (EHU)</th>
 				<th class="px-3 py-2 text-right font-medium">ECTS</th>
 				<th class="px-3 py-2 font-medium">Equivale a (UPIICSA)</th>
-				<th class="px-3 py-2 font-medium">Ficha</th>
+				<th class="px-3 py-2 font-medium">Guía docente</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -33,12 +31,11 @@
 					<td class="px-3 py-2 text-muted-foreground">{materia.equivaleA}</td>
 					<td class="px-3 py-2">
 						<a
-							class="inline-flex items-center gap-1 text-primary underline-offset-4 hover:underline"
-							href={materia.link}
-							target="_blank"
-							rel="noreferrer"
+							class="inline-flex items-center gap-1 whitespace-nowrap text-primary underline-offset-4 hover:underline"
+							href={`#ficha-${materia.codigo}`}
+							onclick={() => fichasAbiertas.set(materia.codigo, true)}
 						>
-							Abrir <ExternalLink class="size-3" />
+							Ver ficha <ArrowDown class="size-3" />
 						</a>
 					</td>
 				</tr>

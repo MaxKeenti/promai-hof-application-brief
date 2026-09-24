@@ -8,7 +8,10 @@ A single HTML document, sent by email, that presents two things:
 
 1. **Materias disponibles** — the UPIICSA catalogue for 7.º and 8.º semestre.
 2. **Materias propuestas** — the UPV/EHU subjects proposed for the exchange, with
-   their UPIICSA equivalence and a link to the official course sheet.
+   their UPIICSA equivalence.
+3. **Guías docentes** — the full official course guide for each of those
+   subjects, transcribed into the document so the reader never has to open a
+   link.
 
 It is a _document_, not an app: no server, no data fetching, no persistence. The
 deliverable is one file that opens from disk over `file://`.
@@ -37,8 +40,13 @@ Do not add font weights or subsets without checking the output size.
 
 ## Structure
 
-- `src/lib/data/` — the source data, transcribed from the spreadsheets, as typed
-  plain objects. All content lives here; components stay presentational.
+- `src/lib/data/` — the source data as typed plain objects. All content lives
+  here; components stay presentational. `materias.ts` comes from the two
+  spreadsheets; `guias.ts` is the literal text of the UPV/EHU guías docentes
+  (2026/27). Treat `guias.ts` as a transcription: to update it, re-copy from the
+  official ficha rather than rewriting the university's wording.
+- `src/lib/state/` — the little shared UI state the document needs (which ficha
+  is unfolded), as `.svelte.ts` rune classes.
 - `src/lib/components/brief/` — the document's own sections and primitives
   (`section.svelte`, `stat.svelte`, `ehu-table.svelte`, one component per section).
 - `src/lib/components/ui/` — shadcn-svelte. Generated; edit only via the CLI.
@@ -61,6 +69,12 @@ Do not add font weights or subsets without checking the output size.
   wrapper — they print and forward cleanly, which a JS data grid does not.
 - Dark mode must keep working: it comes for free from the tokens, so it only
   breaks if you hard-code colours.
+- **Navigation**: a sticky navbar at the top links to each section by fragment;
+  sections carry `scroll-mt-20` so the bar never covers a heading. It is hidden
+  in print.
+- **Long content** folds into native `<details>`, not a JS accordion: the text
+  stays in the DOM for Ctrl+F and can be forced open for printing (see the print
+  rules in `ficha.svelte`). A link into a folded ficha must also unfold it.
 - No interactivity that a reader of a static emailed file cannot use. Anything
   stateful must degrade to readable content.
 

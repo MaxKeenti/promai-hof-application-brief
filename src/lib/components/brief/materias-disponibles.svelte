@@ -17,6 +17,7 @@
 </script>
 
 <Section
+	id="disponibles"
 	index="01 — UPIICSA"
 	title="Materias disponibles en 7.º y 8.º semestre"
 	lead="Catálogo vigente de asignaturas que puedo cursar en UPIICSA durante el periodo de intercambio. Las marcadas como «cubierta» ya tienen una equivalencia en la propuesta EHU de la sección 02."

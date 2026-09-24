@@ -130,3 +130,10 @@
 		@apply font-sans;
 	}
 }
+
+@layer base {
+	/* The navbar in the brief jumps between sections of the same document. */
+	html {
+		scroll-behavior: smooth;
+	}
+}

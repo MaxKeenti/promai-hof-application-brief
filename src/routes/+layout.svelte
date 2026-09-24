@@ -12,8 +12,12 @@
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
 {@render children()}
 
-<div style="display:none">
-	{#each locales as locale (locale)}
-		<a href={resolve(localizeHref(page.url.pathname, { locale }) as Pathname)}>{locale}</a>
-	{/each}
-</div>
+<!-- Links the prerender crawler follows to reach the localized routes. The
+     single-file build has no localized routes to reach. -->
+{#if !__SINGLE_FILE__}
+	<div style="display:none">
+		{#each locales as locale (locale)}
+			<a href={resolve(localizeHref(page.url.pathname, { locale }) as Pathname)}>{locale}</a>
+		{/each}
+	</div>
+{/if}

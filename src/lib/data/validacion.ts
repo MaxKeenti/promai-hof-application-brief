@@ -237,7 +237,19 @@ export type ItemVerificacion = { etiqueta: string; estado: Estado; texto: string
 /** Resumen de preparación de la postulación que abre la sección 02. */
 export const verificacionPostulacion: ItemVerificacion[] = [
 	{ etiqueta: 'Semestre', estado: 'ok', texto: '2.º cuatrimestre · primavera 2027' },
+	{
+		etiqueta: 'Equivalencias',
+		estado: 'ok',
+		texto:
+			'Las cinco equivalencias con el plan de UPIICSA están confirmadas por la coordinación de UPIICSA (correo del 24/09/2026).'
+	},
 	{ etiqueta: 'Nivel académico', estado: 'ok', texto: 'Grado en las cinco asignaturas' },
+	{
+		etiqueta: 'Titulaciones',
+		estado: 'ok',
+		texto:
+			'Tres titulaciones de la misma escuela: Informática de Gestión y Sistemas de Información, Organización Industrial y Tecnología de Telecomunicación.'
+	},
 	{
 		etiqueta: 'Centro',
 		estado: 'ok',

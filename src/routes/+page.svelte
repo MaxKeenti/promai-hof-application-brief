@@ -29,7 +29,8 @@
 				materias que tengo disponibles en UPIICSA para 7.º y 8.º semestre y la selección de
 				asignaturas de Grado que propongo cursar en la Escuela de Ingeniería de Bilbao durante el
 				2.º cuatrimestre del curso académico 2026/27 (primavera 2027), con la equivalencia de cada
-				una, su guía docente completa y la verificación de requisitos y horarios.
+				una —confirmada por la coordinación de UPIICSA el 24 de septiembre de 2026—, su guía docente
+				completa y la verificación de requisitos y horarios.
 			</p>
 		</header>
 
@@ -45,7 +46,8 @@
 				<span class="font-mono">materias_propuestas_EHU.xlsx</span>. Las guías docentes de la
 				sección 03 se transcribieron de las fichas oficiales de la UPV/EHU del curso académico
 				2026/27, y de esas mismas fichas salen los horarios y restricciones de la verificación; cada
-				ficha enlaza a su fuente.
+				ficha enlaza a su fuente. Las equivalencias de la sección 02 son las comunicadas por la
+				coordinación de UPIICSA por correo el 24 de septiembre de 2026.
 			</p>
 		</footer>
 	</div>

@@ -12,13 +12,13 @@
 	id="propuestas"
 	index="02 — UPV/EHU"
 	title="Materias propuestas para el intercambio"
-	lead="Selección de asignaturas de la Universidad del País Vasco, todas en la Escuela de Ingeniería de Bilbao y en castellano, con su equivalencia directa en el plan de UPIICSA. Son asignaturas de Grado del 2.º cuatrimestre, el periodo de intercambio evaluado (primavera 2027) del curso académico 2026/27."
+	lead="Selección de asignaturas de la Universidad del País Vasco, todas en la Escuela de Ingeniería de Bilbao y en castellano. Las cinco equivalencias con el plan de UPIICSA están confirmadas por la coordinación de UPIICSA en su correo del 24 de septiembre de 2026. Son asignaturas de Grado del 2.º cuatrimestre, el periodo de intercambio evaluado (primavera 2027) del curso académico 2026/27."
 >
 	<div class="mb-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
 		<Stat
 			value={String(materiasPropuestas.length)}
 			label="Asignaturas"
-			hint="Propuesta principal"
+			hint="Equivalencias confirmadas"
 		/>
 		<Stat value={`${totalEcts}`} label="ECTS" hint="Carga total" />
 		<Stat value="1" label="Centro" hint="Ing. de Bilbao, Bizkaia" />
@@ -40,8 +40,8 @@
 			<h3 class="font-heading text-lg font-semibold">Alternativas</h3>
 			<p class="max-w-prose text-sm text-muted-foreground">
 				Opciones de reserva por si se exige una sexta asignatura o alguna de la propuesta principal
-				no queda disponible. Todas mantienen equivalencia con materias del catálogo de la sección
-				01.
+				no queda disponible. Todas apuntan a materias del catálogo de la sección 01, pero su
+				equivalencia no está confirmada: habría que validarla igual que las cinco principales.
 			</p>
 		</div>
 		<EhuTable materias={materiasAlternativas} />

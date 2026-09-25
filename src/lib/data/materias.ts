@@ -77,28 +77,11 @@ const INFORMATICA_GESTION =
 const TELECOMUNICACION = 'grado-ingenieria-tecnologia-de-telecomunicacion-plan-nuevo';
 const ORGANIZACION_INDUSTRIAL = 'grado-ingenieria-organizacion-industrial';
 
-/** Propuesta principal: 5 asignaturas EHU, 30 ECTS. */
+/**
+ * Propuesta principal: las 5 asignaturas cuya equivalencia confirmó UPIICSA por
+ * correo de la coordinación (24/09/2026). 30 ECTS.
+ */
 export const materiasPropuestas: MateriaEhu[] = [
-	{
-		codigo: '27684',
-		asignatura: 'Gestión de Proyectos',
-		centro: ESCUELA,
-		campus: CAMPUS,
-		ects: 6,
-		idioma: 'Castellano',
-		equivaleA: 'Gestión de Proyectos',
-		link: ehuLink(INFORMATICA_GESTION, 3, '27684')
-	},
-	{
-		codigo: '27705',
-		asignatura: 'Software de Gestión de Empresa',
-		centro: ESCUELA,
-		campus: CAMPUS,
-		ects: 6,
-		idioma: 'Castellano',
-		equivaleA: 'Calidad y Normalización de Software',
-		link: ehuLink(INFORMATICA_GESTION, 3, '27705')
-	},
 	{
 		codigo: '27704',
 		asignatura: 'Sistemas de Apoyo a la Decisión',
@@ -110,16 +93,6 @@ export const materiasPropuestas: MateriaEhu[] = [
 		link: ehuLink(INFORMATICA_GESTION, 3, '27704')
 	},
 	{
-		codigo: '26023',
-		asignatura: 'Investigación Operativa',
-		centro: ESCUELA,
-		campus: CAMPUS,
-		ects: 6,
-		idioma: 'Castellano',
-		equivaleA: 'Redes y Modelos de Simulación',
-		link: ehuLink(INFORMATICA_GESTION, 2, '26023')
-	},
-	{
 		codigo: '28627',
 		asignatura: 'Seguridad y Administración de Sistemas',
 		centro: ESCUELA,
@@ -128,11 +101,7 @@ export const materiasPropuestas: MateriaEhu[] = [
 		idioma: 'Castellano',
 		equivaleA: 'Seguridad en Redes',
 		link: ehuLink(TELECOMUNICACION, 3, '28627')
-	}
-];
-
-/** Alternativas por si se exige una sexta asignatura o se cae alguna de la propuesta. */
-export const materiasAlternativas: MateriaEhu[] = [
+	},
 	{
 		codigo: '27409',
 		asignatura: 'Dirección de Sistemas de Información',
@@ -140,8 +109,18 @@ export const materiasAlternativas: MateriaEhu[] = [
 		campus: CAMPUS,
 		ects: 6,
 		idioma: 'Castellano',
-		equivaleA: 'Administración de Tecnologías',
+		equivaleA: 'Habilidades Directivas',
 		link: ehuLink(ORGANIZACION_INDUSTRIAL, 4, '27409')
+	},
+	{
+		codigo: '27705',
+		asignatura: 'Software de Gestión de Empresa',
+		centro: ESCUELA,
+		campus: CAMPUS,
+		ects: 6,
+		idioma: 'Castellano',
+		equivaleA: 'Administración de Tecnologías',
+		link: ehuLink(INFORMATICA_GESTION, 3, '27705')
 	},
 	{
 		codigo: '27406',
@@ -150,8 +129,36 @@ export const materiasAlternativas: MateriaEhu[] = [
 		campus: CAMPUS,
 		ects: 6,
 		idioma: 'Castellano',
-		equivaleA: 'Administración Estratégica',
+		equivaleA: 'Informática Empresarial',
 		link: ehuLink(ORGANIZACION_INDUSTRIAL, 4, '27406')
+	}
+];
+
+/**
+ * Alternativas por si se exige una sexta asignatura o se cae alguna de la
+ * propuesta. Sus equivalencias son las estudiadas antes de la confirmación de
+ * UPIICSA y tendrían que validarse igual que las cinco principales.
+ */
+export const materiasAlternativas: MateriaEhu[] = [
+	{
+		codigo: '27684',
+		asignatura: 'Gestión de Proyectos',
+		centro: ESCUELA,
+		campus: CAMPUS,
+		ects: 6,
+		idioma: 'Castellano',
+		equivaleA: 'Gestión de Proyectos',
+		link: ehuLink(INFORMATICA_GESTION, 3, '27684')
+	},
+	{
+		codigo: '26023',
+		asignatura: 'Investigación Operativa',
+		centro: ESCUELA,
+		campus: CAMPUS,
+		ects: 6,
+		idioma: 'Castellano',
+		equivaleA: 'Redes y Modelos de Simulación',
+		link: ehuLink(INFORMATICA_GESTION, 2, '26023')
 	},
 	{
 		codigo: '27401',
